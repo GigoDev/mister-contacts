@@ -71,3 +71,4 @@ function debounce(func, timeout = 300) {
         }, timeout)
     }
 }
+
