@@ -1,5 +1,7 @@
 import { contactService } from "../services/contact.service.js"
-const { Link, NavLink } = ReactRouterDOM
+const { NavLink } = ReactRouterDOM
+
+
 export function HomePage() {
 
 
@@ -7,8 +9,8 @@ export function HomePage() {
         <section>
             <h2>
                 Home page2
-                <NavLink to="/contact/rrPFPy">Contact</NavLink>
             </h2 >
+            <NavLink to="/contact" >Contacs</NavLink>
         </section >
     )
 }

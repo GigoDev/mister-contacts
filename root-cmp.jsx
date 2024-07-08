@@ -5,6 +5,7 @@ import { store } from './store/store.js'
 
 
 import { HomePage } from './pages/HomePage.jsx'
+import { ContactIndex } from './pages/ContactIndex.jsx'
 
 
 export function App() {
@@ -16,6 +17,7 @@ export function App() {
                         <main className='main-layout'>
                             <Routes>
                                 <Route element={<HomePage />} path="/" />
+                                <Route element={<ContactIndex />} path="/contact" />
                             </Routes>
                         </main>
                     </section>
