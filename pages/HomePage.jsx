@@ -6,7 +6,7 @@ export function HomePage() {
     return (
         <section>
             <h2>
-        Home page
+        Home page2
             </h2 >
         </section >
     )
