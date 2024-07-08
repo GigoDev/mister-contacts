@@ -5,6 +5,7 @@ import { store } from './store/store.js'
 
 
 import { HomePage } from './pages/HomePage.jsx'
+import { ContactDetails } from './pages/ContactDetails.jsx'
 
 
 export function App() {
