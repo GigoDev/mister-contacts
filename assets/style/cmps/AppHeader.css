@@ -1,0 +1,26 @@
+.app-header{
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-inline: 20px;
+
+}
+
+.logo{
+
+}
+
+.nav-links{
+   
+
+}
+
+.app-nav{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
