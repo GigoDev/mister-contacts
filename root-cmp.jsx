@@ -8,6 +8,8 @@ import { HomePage } from './pages/HomePage.jsx'
 import { ContactIndex } from './pages/ContactIndex.jsx'
 import { ContactDetails } from './pages/ContactDetails.jsx'
 import { ContactEdit } from './pages/ContactEdit.jsx'
+import { AppHeader } from './cmps/AppHeader.jsx'
+import { AppFooter } from './cmps/AppFooter.jsx'
 
 
 export function App() {
@@ -16,6 +18,7 @@ export function App() {
         <Provider store={store}>
             <Router>
                 <section className="app">
+                        <AppHeader/>
                     <main className='main-layout'>
                         <Routes>
                             <Route element={<HomePage />} path="/" />
@@ -24,6 +27,7 @@ export function App() {
                             <Route element={<ContactEdit />} path="/contact/edit/:todoId" />
                         </Routes>
                     </main>
+                        <AppFooter/>
                 </section>
             </Router>
         </Provider>
