@@ -18,7 +18,6 @@ window.cs = contactService
 function query(filterBy = {}) {
     return storageService.query(CONTACT_KEY)
         .then(contacts => {
-            console.log('contacts:', contacts)
 
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
@@ -32,7 +31,6 @@ function query(filterBy = {}) {
 }
 
 function get(contactId) {
-    console.log(contactId)
     return storageService.get(CONTACT_KEY, contactId)
 }
 

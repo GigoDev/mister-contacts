@@ -1,5 +1,5 @@
 import { contactService } from "../../services/contact.service.js"
-import { REMOVE_CONTACT, SET_CONTACTS, store } from "../store.js"
+import { ADD_CONTACT, REMOVE_CONTACT, SET_CONTACTS, store, UPDATE_CONTACT } from "../store.js"
 
 export function loadContacts() {
     return contactService.query()
@@ -11,6 +11,19 @@ export function loadContacts() {
             throw err
         })
 }
+
+export function saveContact(contact) {
+    const type = contact._id ? UPDATE_CONTACT : ADD_CONTACT
+    return contactService.save(contact)
+        .then(savedContact => {
+            store.dispatch({ type, contact: savedContact })
+            return savedContact
+        })
+        .catch(err => {
+            console.log('contact action -> Cannot save contact', err)
+            throw err
+        })
+}   
 
 export function removeContact(contactId) {
     return contactService.remove(contactId)
