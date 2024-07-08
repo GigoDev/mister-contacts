@@ -1,8 +1,8 @@
 import { contactService } from "../../services/contact.service.js"
 import { ADD_CONTACT, REMOVE_CONTACT, SET_CONTACTS, store, UPDATE_CONTACT } from "../store.js"
 
-export function loadContacts() {
-    return contactService.query()
+export function loadContacts(filterBy) {
+    return contactService.query(filterBy)
         .then((contacts) => {
             store.dispatch({ type: SET_CONTACTS, contacts })
         })
