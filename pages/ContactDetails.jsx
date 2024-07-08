@@ -25,7 +25,7 @@ export function ContactDetails() {
             <h1>Contact details</h1>
             <h4 className="name">{`${fullname}`}</h4>
             <h4 className="email">{contact.email}</h4>
-            <button ><Link to="/">Main</Link></button>
+            <button ><Link to="/contact">Contacts</Link></button>
         </section>
     )
 }
