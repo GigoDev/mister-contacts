@@ -5,7 +5,9 @@ export const utilService = {
     loadFromStorage,
     saveToStorage,
     animateCSS,
-    debounce
+    debounce,
+    getRandomWord,
+    getRandomEmail,
 }
 
 function makeId(length = 6) {
@@ -70,5 +72,19 @@ function debounce(func, timeout = 300) {
             func.apply(this, args)
         }, timeout)
     }
+}
+
+//makeEmail demo data
+function getRandomEmail() {
+    var name = getRandomWord()
+    var familyName = getRandomWord()
+    return `${name}.${familyName}@gmail.com`
+}
+
+//function to get a rendom word:
+function getRandomWord() {
+    const words = ['apple', 'banana', 'cherry', 'date', 'elderberry', 'fig','Elephant', 'Cascade', 'Jubilant', 'Quicksilver', 'Gossamer', 'Zephyr', 'Labyrinth', 'Serendipity', 'Nexus', 'Illuminate', 'Whisper', 'Avalanche', 'Mirage', 'Nebula', 'Crystalline', 'Enigma', 'Solitude', 'Tesseract', 'Ephemeral', 'Wanderlust, Ethereal', 'Zenith', 'Incandescent', 'Maelstrom', 'Melancholy', 'Sonorous', 'Epiphany', 'Cascade', 'Quasar', 'Trance', 'Blossom', 'Synchronicity', 'Luminescence', 'Mellifluous', 'Solace', 'Ethereal', 'Enigmatic', 'Cascade', 'Resonance', 'Quintessence']
+    const randomIndex = Math.floor(Math.random() * words.length)
+    return words[randomIndex]
 }
 
