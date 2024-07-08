@@ -12,6 +12,8 @@ export const contactService = {
     getEmptyContact,
 }
 
+window.cs = contactService
+
 
 function query(filterBy = {}) {
     return storageService.query(CONTACT_KEY)
@@ -30,6 +32,7 @@ function query(filterBy = {}) {
 }
 
 function get(contactId) {
+    console.log(contactId)
     return storageService.get(CONTACT_KEY, contactId)
 }
 
@@ -69,7 +72,7 @@ function _createContacts() {
 
 function _createContact() {
     const contact = getEmptyContact()
-    contact.id = utilService.makeId()
+    contact._id = utilService.makeId()
     contact.name = utilService.getRandomWord()
     contact.familyName = utilService.getRandomWord()
     contact.email = `${contact.name}${contact.familyName}@gmail.com`
