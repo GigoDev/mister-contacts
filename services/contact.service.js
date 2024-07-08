@@ -69,7 +69,7 @@ function _createContacts() {
 
 function _createContact() {
     const contact = getEmptyContact()
-    contact.id = utilService.makeId()
+    contact._id = utilService.makeId()
     contact.name = utilService.getRandomWord()
     contact.familyName = utilService.getRandomWord()
     contact.email = `${contact.name}${contact.familyName}@gmail.com`
