@@ -10,10 +10,10 @@ export const contactService = {
     remove,
     save,
     getEmptyContact,
+    getFilterFromSearchParams
 }
 
 window.cs = contactService
-
 
 function query(filterBy = {}) {
     return storageService.query(CONTACT_KEY)
@@ -21,10 +21,7 @@ function query(filterBy = {}) {
 
             if (filterBy.txt) {
                 const regExp = new RegExp(filterBy.txt, 'i')
-                contacts = contacts.filter(contact => regExp.test(contact.vendor))
-            }
-            if (filterBy.minSpeed) {
-                contacts = contacts.filter(contact => contact.speed >= filterBy.minSpeed)
+                contacts = contacts.filter(contact => regExp.test(contact.email) )
             }
             return contacts
         })
@@ -47,13 +44,23 @@ function save(contact) {
     }
 }
 
+function getDefaultFilter() {
+    return { txt: '', importance: 0, select: 'all' }
+}
+
+function getFilterFromSearchParams(searchParams) {
+    const defaultFilter = getDefaultFilter()
+    const filterBy = {}
+    for (const field in defaultFilter) {
+        filterBy[field] = searchParams.get(field) || ''
+    }
+    return filterBy
+}
+
+
 function getEmptyContact(name = '', familyName = '', email = '') {
     return { name, familyName, email }
 }
-
-// function getDefaultFilter() {
-//     return { txt: '', minSpeed: '' }
-// }
 
 function _createContacts() {
     let contacts = utilService.loadFromStorage(CONTACT_KEY)
